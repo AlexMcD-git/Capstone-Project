@@ -1,4 +1,6 @@
 class Team < ApplicationRecord
-  belongs_to :board
+  has_one :board, dependent: :destroy
   has_many :players
+
+  has_many :tiles, through: :board
 end

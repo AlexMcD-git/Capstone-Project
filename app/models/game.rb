@@ -1,4 +1,7 @@
 class Game < ApplicationRecord
-    has_many :template_tiles
-    has_many :boards
+    has_many :template_tiles, dependent: :destroy
+    has_many :boards, dependent: :destroy
+    
+    has_many :tiles, through: :boards
+
 end
