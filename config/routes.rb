@@ -3,14 +3,21 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :games, only: [:index, :show, :create]
-  resources :players, only: [:create, :index, :destroy]
-  resources :teams, only: [:create, :index, :destroy]
-
+  get "games/example", to: "games#example"
+  
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
 
   patch "teams/:team_id/add_to_game/:game_id", to: "teams#add_to_game"
-  get "games/example", to: "games#example"
+  patch "/tiles/:id/accept", to: "tiles#accept"
+  patch "/tiles/:id/decline", to: "tiles#decline"
+  get "tiles/pending", to: "tiles#pending"
+
+
+  resources :games, only: [:index, :show, :create]
+  resources :players, only: [:create, :index, :destroy]
+  resources :teams, only: [:create, :index, :destroy]
+
+
 
 end

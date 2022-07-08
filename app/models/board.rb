@@ -10,4 +10,11 @@ class Board < ApplicationRecord
     end
     self.score = values.reduce(0) { |sum, num| sum + num }
   end
+
+  # every 1.minute do
+  #   boards= Board.all
+
+  # end
+
+
 end

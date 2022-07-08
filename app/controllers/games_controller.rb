@@ -3,10 +3,7 @@ class GamesController < ApplicationController
     def create
         tiles=params[:tiles]
         game=Game.create!(game_params)
-        tiles.each do |tile|
-            puts tile[:position], tile[:description], tile[:value]
-            tile=TemplateTile.create!(game:game, position: tile[:position], description: tile[:description], value: tile[:value])
-        end
+        create_tiles(game, tiles)
         render json: game, status: :created
     end
 
@@ -20,13 +17,21 @@ class GamesController < ApplicationController
         render json: game, status: 200
     end
 
+    def example
+        example = Game.find_by(name: "Bingo Example")
+        render json: example, include: ['boards', 'boards.tiles']
+    end
+
     private
     
     def game_params
         params.permit(:name)
     end
 
-    def tile_params
-        params.permit(:position, :description, :value)
+    def create_tiles (game, tiles)
+        tiles.each do |tile|
+            tile=TemplateTile.create!(game:game, position:tile[:position],description: tile[:description],value: tile[:value])
+        end
     end
+
 end

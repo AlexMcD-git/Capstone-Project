@@ -17,8 +17,6 @@ game_example=Game.create(name: "Bingo Example")
 end
 
 example_teams_count.times do |n|
-    # board=Board.create!(game:game_example, score: 0, team: "")
-    # binding.pry
     team=Team.create(team_name:"Team #{n+1}")
     players_per_example_team.times do
         player=Player.create(in_game_name:Faker::Name.name, team:team)

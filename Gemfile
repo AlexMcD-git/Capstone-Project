@@ -5,6 +5,7 @@ ruby "2.7.4"
 
 gem "faker"
 gem 'pry'
+gem 'whenever'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.3"
 
