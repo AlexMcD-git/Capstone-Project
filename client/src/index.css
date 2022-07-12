@@ -1,0 +1,34 @@
+.navWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 1rem;
+  margin: 2rem 0;
+  background-color: rgb(8, 37, 99);
+}
+
+.navLinks {
+  text-decoration: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+  border-radius: 6px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.navLinks.active,
+.navLinks:focus,
+.navLinks:hover {
+  color: darkgray;
+  background-color: rgba(3, 4, 78, 0.74);
+}
+
+.navBar {
+  overflow: hidden;
+  background-color: darkgrey;
+}
+
+.navBar .loginContainer {
+  float: right;
+}

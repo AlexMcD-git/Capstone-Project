@@ -1,5 +1,9 @@
 import React , {useState} from 'react'
-function Login({setAdmin, setLoggedIn}) {
+import {useDispatch} from 'react-redux'
+import {login} from "../features/admin"
+function Login() {
+    const dispatch = useDispatch()
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
    
@@ -19,9 +23,10 @@ function Login({setAdmin, setLoggedIn}) {
         .then(res => {
           if(res.ok){
             res.json()
-            .then(admin=>{
-              setAdmin(admin)
-              setLoggedIn(true)
+            .then(data=>{
+              console.log('here' +data.username)
+              dispatch(login({username:data.username}))
+              // setLoggedIn(true)
             })
             
           } else {
@@ -33,9 +38,7 @@ function Login({setAdmin, setLoggedIn}) {
 
 
   return (
-    <>
-        <h1></h1>
-        <h1>Login</h1>
+    <div className="loginContainer">
         <form onSubmit={onSubmit}>
         <label>
           Username
@@ -49,7 +52,7 @@ function Login({setAdmin, setLoggedIn}) {
        
         <input type="submit" value="Login" />
       </form>
-    </>
+    </div>
   )
 }
 export default Login
