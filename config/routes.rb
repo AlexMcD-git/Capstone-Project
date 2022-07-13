@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   post "players/:team_id", to:"players#create"
 
 
-  resources :games, only: [:index, :show]
+  resources :games, only: [:index, :show, :create]
   resources :players, only: [:index, :destroy]
   resources :teams, only: [:create, :index, :destroy]
 

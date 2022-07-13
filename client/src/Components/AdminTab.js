@@ -3,6 +3,7 @@ import OwnerControls from './OwnerControls'
 import { useSelector, useDispatch } from "react-redux"
 import TileListItem from './TileListItem'
 import { setGame } from '../features/game'
+import NewGameForm from './NewGameForm'
 
 function AdminTab() {
     const dispatch = useDispatch()
@@ -73,6 +74,13 @@ function AdminTab() {
         .then(data=>setPlayers([...players, data]))
     }
 
+    function deletePlayer(id){
+        fetch(`/players/${id}`,{
+            method: 'DELETE'
+        })
+        .then(setPlayers([...players].filter(p => p.id !== id)))
+    }
+
   return (
     <div>
         AdminTab
@@ -101,9 +109,13 @@ function AdminTab() {
             <button type="submit">Create Player</button>
         </form>
         <br/>
+        <h2>Player List:</h2>
+        <ul>
+            {players.map(p=><li key={p.id}>{p.in_game_name} <button onClick={()=>deletePlayer(p.id)}>Delete</button></li>)}
+        </ul>
 
-        <h1>Create a new board</h1>
-
+        <h1>Create a new game</h1>
+        <NewGameForm/>
     </div>
   )
 }
