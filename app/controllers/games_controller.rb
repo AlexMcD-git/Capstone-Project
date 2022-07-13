@@ -19,7 +19,23 @@ class GamesController < ApplicationController
 
     def example
         example = Game.find_by(name: "Bingo Example")
-        render json: example, include: ['boards', 'boards.tiles']
+        render json: example, include: ['boards', 'boards.tiles', 'boards.team']
+    end
+
+    def getActive
+        game = Game.find_by(is_active: true)
+        render json: game, include: ['boards', 'boards.tiles', 'boards.team', 'boards.team.players']
+    end
+
+    def setActive
+        game = Game.find(params[:id])
+        games = Game.all
+        games.each {|game| game.update!(is_active: false)}
+        puts game.is_active
+        game.update!(is_active: true)
+        puts game.is_active
+        render json: game, include: ['boards', 'boards.tiles']
+
     end
 
     private

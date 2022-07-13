@@ -4,10 +4,9 @@ import { useSelector } from "react-redux"
 import { NavLink } from 'react-router-dom'
 
 
-//{admin, setAdmin, setLoggedIn}
 function NavBar() {
     const admin = useSelector ((state) => state.admin.value)
-    console.log(admin)
+    // console.log(admin)
   return (
     <div className='navBar'>
         <NavLink className="navLinks" to="/welcome">

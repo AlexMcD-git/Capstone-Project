@@ -11,7 +11,7 @@ example_teams_count = 2
 players_per_example_team = 2
 statuses=["incomplete", "complete", "pending"]
 
-game_example=Game.create(name: "Bingo Example")
+game_example=Game.create(name: "Bingo Example", is_active: false)
 25.times do |n|
     tile=TemplateTile.create(game: game_example, position: n+1, description:"EXAMPLE #{n+1}", value: 5)
 end
@@ -26,7 +26,7 @@ example_teams_count.times do |n|
 
     25.times do |n|
         template=TemplateTile.find_by(position:n+1, game:board.game)
-        Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:statuses.sample)
+        Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:statuses.sample, image_url:"https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350")
     end
 end
-puts "The seeds have (alledegely) been planted :-)"
+puts "The seeds have (supposedly) been planted :-)"

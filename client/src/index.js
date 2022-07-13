@@ -6,12 +6,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import adminReducer from "./features/admin"
+import gameReducer from "./features/game"
 import './index.css';
 
 const store = configureStore({
     reducer: {
         admin:adminReducer,
-
+        game:gameReducer
     }
 })
 

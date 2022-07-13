@@ -1,7 +1,14 @@
 class TeamsController < ApplicationController
     def create
         team=Team.create!(team_params)
-        render json: team,  status: :created
+        game = Game.find(params[:game_id])
+
+        board=Board.create!(game:game, score: 0, team: team)
+        25.times do |n|
+            template=TemplateTile.find_by(position:n+1, game:board.game)
+            Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:"incomplete")
+        end
+        render json: game, include: ['boards', 'boards.tiles', 'boards.team'], status: 200
     end
 
     def index
@@ -23,7 +30,7 @@ class TeamsController < ApplicationController
             template=TemplateTile.find_by(position:n+1, game:board.game)
             Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:"incomplete")
         end
-        render json: team, include: ['board','board.tiles'], status: 200
+        render json: team, include: ['boards', 'boards.tiles', 'boards.team'], status: 200
     end
 
 

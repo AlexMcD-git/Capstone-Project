@@ -24,9 +24,7 @@ function Login() {
           if(res.ok){
             res.json()
             .then(data=>{
-              console.log('here' +data.username)
               dispatch(login({username:data.username}))
-              // setLoggedIn(true)
             })
             
           } else {

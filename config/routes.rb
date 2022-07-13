@@ -7,15 +7,19 @@ Rails.application.routes.draw do
   
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"
+  patch "/games/:id/set_active", to: "games#setActive"
+  get "/games/active", to: "games#getActive"
 
   patch "teams/:team_id/add_to_game/:game_id", to: "teams#add_to_game"
   patch "/tiles/:id/accept", to: "tiles#accept"
   patch "/tiles/:id/decline", to: "tiles#decline"
   get "tiles/pending", to: "tiles#pending"
+  post "/teams/:game_id", to:"teams#create"
+  post "players/:team_id", to:"players#create"
 
 
-  resources :games, only: [:index, :show, :create]
-  resources :players, only: [:create, :index, :destroy]
+  resources :games, only: [:index, :show]
+  resources :players, only: [:index, :destroy]
   resources :teams, only: [:create, :index, :destroy]
 
 

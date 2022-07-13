@@ -2,14 +2,14 @@ class TilesController < ApplicationController
     
     def accept
          tile = Tile.find(params[:id])
-         tile.status="complete"
+         tile.update!(status:"complete")
          UpdateScoreJob.perform_later(tile.board)
          render json: tile, status: 200
     end
 
     def decline
-        tile = tile.find(params[:id])
-        tile.status="incomplete"
+        tile = Tile.find(params[:id])
+        tile.update!(status:"incomplete")
         render json: tile, status: 200
     end
 
