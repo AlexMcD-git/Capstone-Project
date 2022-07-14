@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom'
 
 function NavBar() {
     const admin = useSelector ((state) => state.admin.value)
-    // console.log(admin)
   return (
     <div className='navBar'>
         <NavLink className="navLinks" to="/welcome">

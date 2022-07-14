@@ -16,8 +16,7 @@ function App() {
   const dispatch = useDispatch()
   const admin = useSelector ((state) => state.admin.value)
   const activeGame = useSelector ((state) => state.game.value)
-  // console.log(activeGame)
-
+  
   useEffect (() => navigate("/welcome"),[])
 
   useEffect(()=> {

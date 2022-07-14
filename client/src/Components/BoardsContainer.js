@@ -18,7 +18,7 @@ function BoardsContainer() {
   },[]) 
 
   return (
-    <div>BoardsContainer
+    <div>
         <Leaderboard/>
         <h1>Board Progress For Each Team:</h1>
         {boards.map(b=><BoardCard key={b.id} board={b}/>)}

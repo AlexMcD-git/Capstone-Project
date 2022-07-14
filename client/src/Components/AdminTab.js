@@ -81,7 +81,6 @@ function AdminTab() {
 
   return (
     <div>
-        AdminTab
         {admin.username==="Alex"?<OwnerControls/>:null}
         <h1>Pending Tiles:</h1>
         <ul>

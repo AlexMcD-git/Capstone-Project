@@ -9,7 +9,7 @@ function Leaderboard() {
   },[]) 
 
   return (
-    <div>Leaderboard
+    <div>
         <h1>Current Standings:</h1>
         <div className="Leaderboard">
         {rankedBoards.map(board=><div key={board.id}>{board.score} points: {board.team.team_name+" "}({board.team.players.map(p=>p.in_game_name+", ").join('').slice(0,-2)})</div>)}

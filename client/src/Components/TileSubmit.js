@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react'
 import { useSelector } from "react-redux"
 function TileSubmit() {
   const activeGame = useSelector ((state) => state.game.value)
-  // console.log(activeGame)
-
 
   const initialState={
     image_url: "",

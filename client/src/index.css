@@ -28,7 +28,7 @@ button {
   color: white;
   padding: 0.5rem 1rem;
   margin: 1rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   border-radius: 6px;
 }
 
@@ -102,3 +102,11 @@ h2 {
   background-color: rgb(3, 114, 31);
   text-align:center
 }
+
+a:visited { 
+  color: white; 
+ }
+
+a { 
+  color: rgb(0, 255, 136); 
+ }

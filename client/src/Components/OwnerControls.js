@@ -16,7 +16,6 @@ function OwnerControls() {
     function submitActive(e){
         e.preventDefault()
         const newActiveGame = games.filter(g=>g.name === ga)[0]
-        console.log(newActiveGame)
         fetch(`games/${newActiveGame.id}/set_active`,{
             method: 'PATCH',
         })
