@@ -21,7 +21,10 @@ function OwnerControls() {
             method: 'PATCH',
         })
         .then(r=>r.json())
-        .then(data=>dispatch(setGame(data)))
+        .then(data=>{
+            fetch('/games').then(r=>r.json()).then(setGames).then(setGame(games[0]))
+            dispatch(setGame(data))
+        })
     }
 
 

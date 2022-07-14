@@ -19,7 +19,7 @@ class GamesController < ApplicationController
 
     def example
         example = Game.find_by(name: "Bingo Example")
-        render json: example, include: ['boards', 'boards.tiles', 'boards.team']
+        render json: example, include: ['boards', 'boards.tiles', 'boards.team', 'boards.team.players']
     end
 
     def getActive
@@ -29,12 +29,10 @@ class GamesController < ApplicationController
 
     def setActive
         game = Game.find(params[:id])
-        games = Game.all
-        games.each {|game| game.update!(is_active: false)}
-        puts game.is_active
+        games = Game.where.not(id: params[:id])
+        games.each {|g| g.update!(is_active: false)}
         game.update!(is_active: true)
-        puts game.is_active
-        render json: game, include: ['boards', 'boards.tiles']
+        render json: game, include: ['boards', 'boards.tiles', 'boards.team', 'boards.team.players']
 
     end
 

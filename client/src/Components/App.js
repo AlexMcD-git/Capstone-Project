@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { Routes, Route } from 'react-router-dom';
 import { useSelector } from "react-redux"
-import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import TileSubmit from "./TileSubmit";
 import IntroductionPage from "./IntroductionPage";
@@ -16,6 +16,7 @@ function App() {
   const dispatch = useDispatch()
   const admin = useSelector ((state) => state.admin.value)
   const activeGame = useSelector ((state) => state.game.value)
+  // console.log(activeGame)
 
   useEffect (() => navigate("/welcome"),[])
 

@@ -8,13 +8,8 @@ class Board < ApplicationRecord
     completed_tiles=self.tiles.where(status:"complete").each do |tile|
       values.push(tile.value)
     end
-    self.score = values.reduce(0) { |sum, num| sum + num }
+    score = values.reduce(0) { |sum, num| sum + num }
+    self.update(score:score)
   end
-
-  # every 1.minute do
-  #   boards= Board.all
-
-  # end
-
 
 end

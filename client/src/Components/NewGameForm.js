@@ -75,7 +75,6 @@ function NewGameForm() {
         })
         .then(r=>r.json)
         .then(data=>{
-            console.log(data)
             setFormState(initialState)
         })
     }
@@ -83,7 +82,7 @@ function NewGameForm() {
   return (
     <form onSubmit={(e)=>handleSubmit(e)}>
         <label>Game Name: </label>
-        <input type="text" name="name" value={formState.name}></input>
+        <input type="text" name="name" value={formState.name} onChange = {handleChange}></input>
         <div className="grid">
             <div className="grid-item">Tile 1: <input type="text" name="tile1Description" value={formState.tile1Description} onChange = {handleChange}></input> <br/> Value: <input type="number" name="tile1Value" value={formState.tile1Value} onChange = {handleChange}></input></div>
             <div className="grid-item">Tile 2: <input type="text" name="tile2Description" value={formState.tile2Description} onChange = {handleChange}></input> <br/> Value: <input type="number" name="tile2Value" value={formState.tile2Value} onChange = {handleChange}></input></div>

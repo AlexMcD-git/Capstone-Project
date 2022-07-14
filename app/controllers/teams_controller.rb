@@ -4,11 +4,12 @@ class TeamsController < ApplicationController
         game = Game.find(params[:game_id])
 
         board=Board.create!(game:game, score: 0, team: team)
+        team.update!(board:board)
         25.times do |n|
             template=TemplateTile.find_by(position:n+1, game:board.game)
             Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:"incomplete")
         end
-        render json: game, include: ['boards', 'boards.tiles', 'boards.team'], status: 200
+        render json: game, include: ['boards', 'boards.tiles', 'boards.team', 'boards.team.players'], status: 200
     end
 
     def index
@@ -21,6 +22,7 @@ class TeamsController < ApplicationController
         render json: {}, status: 200
     end
 
+    #Todo: clean up if not used
     def add_to_game
         team = Team.find(params[:team_id])
         game = Game.find(params[:game_id])
@@ -30,7 +32,7 @@ class TeamsController < ApplicationController
             template=TemplateTile.find_by(position:n+1, game:board.game)
             Tile.create!(board:board, position:template[:position], description:template[:description], value:template[:value], status:"incomplete")
         end
-        render json: team, include: ['boards', 'boards.tiles', 'boards.team'], status: 200
+        render json: team, include: ['boards', 'boards.tiles', 'boards.team', 'boards.team.players'], status: 200
     end
 
 

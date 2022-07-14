@@ -18,14 +18,12 @@ function AdminTab() {
     const activeGame = useSelector ((state) => state.game.value)
     useEffect(()=>{setTeams(activeGame.boards.map(board=>board.team))},[])
     useEffect(()=>{setPlayers(activeGame.boards.map(board=>board.team).map(t=>t.players).flat(1))},[])
-    console.log(players)
 
     useEffect(()=> {
         fetch('tiles/pending').then(r=>r.json()).then(data=>setPendingTiles(data))
     },[])
 
     function acceptTile(id){
-        console.log(id)
         fetch(`/tiles/${id}/accept`,{
             method: 'PATCH'
         })
@@ -33,7 +31,6 @@ function AdminTab() {
         .then(tile=>setPendingTiles([...pendingTiles].filter(t=>t.id!==tile.id)))
     }
     function declineTile(id){
-        console.log(id)
         fetch(`/tiles/${id}/decline`,{
             method: 'PATCH'
         })
@@ -44,7 +41,6 @@ function AdminTab() {
     //creates a board for the team too in order to link it to the game
     function createTeam(e){
         e.preventDefault()
-        console.log(newTeamName)
         fetch(`/teams/${activeGame.id}`,{
             method: 'POST',
             headers: {
@@ -62,7 +58,6 @@ function AdminTab() {
     function createPlayer(e){
         e.preventDefault()
         const teamForNewPlayer = teams.filter(t=>t.team_name===selectTeam)[0]
-        console.log(newPlayerName + "is being created for team with id: " + teamForNewPlayer.id)
         fetch(`/players/${teamForNewPlayer.id}`,{
             method: 'POST',
             headers: {
@@ -71,7 +66,10 @@ function AdminTab() {
             body: JSON.stringify({in_game_name: newPlayerName})
         })
         .then(res=>res.json())
-        .then(data=>setPlayers([...players, data]))
+        .then(data=>{
+            // dispatch(setGame(data))
+            setNewPlayername("")
+        })
     }
 
     function deletePlayer(id){

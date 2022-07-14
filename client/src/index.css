@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'rs';
+  src:url('runescape_uf.woff') format('woff');
+}
+html {
+  font-family: 'rs';
+  font-size:1.5rem;
+  color: rgb(228, 228, 8);
+  background-color: rgb(49, 49, 49);
+}
+
+button {
+  background-color: rgb(28, 10, 185);
+  color: rgb(228, 228, 8);
+}
+
 .navWrapper {
   display: flex;
   flex-wrap: wrap;
@@ -12,9 +28,8 @@
   color: white;
   padding: 0.5rem 1rem;
   margin: 1rem;
-  font-size: 2rem;
+  font-size: 1rem;
   border-radius: 6px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .navLinks.active,
@@ -25,8 +40,9 @@
 }
 
 .navBar {
-  overflow: hidden;
+  height: 3rem;
   background-color: darkgrey;
+
 }
 
 .navBar .loginContainer {
@@ -47,4 +63,9 @@
   outline: solid;
   box-sizing: border-box;
   padding: 10px;
+}
+
+h1 {
+  font-weight: normal;
+  font-size :xx-large
 }

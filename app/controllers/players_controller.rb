@@ -13,6 +13,7 @@ class PlayersController < ApplicationController
     def create
         team=Team.find(params[:team_id])
         player=Player.create!(in_game_name:params[:in_game_name], team:team)
+        game=team.board.game
         render json: player, status: :created
     end
 end
