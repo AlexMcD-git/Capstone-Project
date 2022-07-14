@@ -8,7 +8,6 @@ function Leaderboard() {
     setRankedBoards([...activeGame.boards].sort((a, b) => (a.score<b.score)?1:-1))
   },[]) 
 
-  console.log(rankedBoards)
   return (
     <div>Leaderboard
         <h1>Current Standings:</h1>

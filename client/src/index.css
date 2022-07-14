@@ -69,3 +69,36 @@ h1 {
   font-weight: normal;
   font-size :xx-large
 }
+
+h2 {
+  font-weight: normal;
+  font-size :x-large
+}
+
+.grid2 {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1500px;
+  outline: solid;
+}
+
+.grid2-item {
+  width: 300px;
+  height: 300px;  
+  overflow: hidden;
+  outline: solid;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align:center
+}
+
+.grid2-item-complete {
+  width: 300px;
+  height: 300px;  
+  overflow: hidden;
+  outline: solid;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: rgb(3, 114, 31);
+  text-align:center
+}
