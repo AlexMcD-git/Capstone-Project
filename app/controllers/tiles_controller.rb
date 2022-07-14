@@ -18,4 +18,10 @@ class TilesController < ApplicationController
         render json: tiles, status: 200
     end
 
+    def link_submit
+        tile= Tile.find(params[:id])
+        tile.update!(status:"pending", image_url: params[:image_url])
+        render json: tile, status: 200
+    end
+
 end

@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   get "/games/active", to: "games#getActive"
 
   patch "teams/:team_id/add_to_game/:game_id", to: "teams#add_to_game"
+  
   patch "/tiles/:id/accept", to: "tiles#accept"
   patch "/tiles/:id/decline", to: "tiles#decline"
+  patch "/tiles/:id/link_submit", to: "tiles#link_submit"
   get "tiles/pending", to: "tiles#pending"
+
   post "/teams/:game_id", to:"teams#create"
   post "players/:team_id", to:"players#create"
 
