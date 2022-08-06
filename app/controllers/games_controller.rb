@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+    skip_before_action :authorized, only: [:example, :show, :index, :getActive]
     require 'pry'
     def create
         tiles=params[:tiles]

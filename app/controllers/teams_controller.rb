@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+    skip_before_action :authorized, only: [:index]
     def create
         team=Team.create!(team_params)
         game = Game.find(params[:game_id])

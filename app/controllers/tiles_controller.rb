@@ -1,5 +1,5 @@
 class TilesController < ApplicationController
-    
+    skip_before_action :authorized, only: [:link_submit]
     def accept
          tile = Tile.find(params[:id])
          tile.update!(status:"complete")

@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+    skip_before_action :authorized, only: [:index]
     def index
         players = Player.all
         render json: players, status: 200
