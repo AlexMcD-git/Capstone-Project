@@ -3,10 +3,10 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-    # before_action :authorized
-    # def authorized
-    #     return render json:{error: "Not Authorized"}, status: :unauthorized unless session.include? :admin_id
-    # end
+    before_action :authorized
+    def authorized
+        return render json:{error: "Not Authorized"}, status: :unauthorized unless session.include? :admin_id
+    end
 
     private 
     
