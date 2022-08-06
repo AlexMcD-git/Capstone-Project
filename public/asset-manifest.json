@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2705815c.css",
+    "main.js": "/static/js/main.e8e07ff0.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/runescape_uf.woff": "/static/media/runescape_uf.122f745d23c548664c28.woff",
+    "index.html": "/index.html",
+    "main.2705815c.css.map": "/static/css/main.2705815c.css.map",
+    "main.e8e07ff0.js.map": "/static/js/main.e8e07ff0.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2705815c.css",
+    "static/js/main.e8e07ff0.js"
+  ]
+}
