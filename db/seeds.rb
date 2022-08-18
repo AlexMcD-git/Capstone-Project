@@ -31,6 +31,6 @@ example_teams_count.times do |n|
 end
 
 game2=Game.create!(name:"Test", is_active:false)
-owner=Admin.create!(username:"Alex", password:"123")
-admin=Admin.create!(username:"Joe", password:"123")
+owner=Admin.create!(username:"Alex", password:"123",is_owner: true)
+admin=Admin.create!(username:"Joe", password:"123",is_owner: true)
 puts "The seeds have (supposedly) been planted :-)"

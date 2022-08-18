@@ -6,8 +6,17 @@ import { setGame } from '../features/game'
 function OwnerControls() {
     const dispatch = useDispatch()
     const [games, setGames]= useState([])
-    //i named too many variables game lol
+    //i named too many variables game
     const [ga, setGa]= useState("")
+    const [newAdmin, setNewAdmin]= useState({
+        username: "",
+        password: ""
+    })
+
+    function formChange(e){
+        const target = e.target
+        setNewAdmin({...newAdmin, target: e.target.value})
+    }
 
     useEffect(() => {
         fetch('/games').then(r=>r.json()).then(setGames).then(setGame(games[0]))
@@ -36,6 +45,15 @@ function OwnerControls() {
             </select>
             <br/>
             <button type="submit">Change Active Game</button>
+        </form>
+
+        <form>
+            <label>Create a new admin</label><br/>
+            <label>Username:</label>
+            <input value={newAdmin.username} onChange={updateNewAdmin(e)}></input><br/>
+            <label>Password:</label>
+            <input value={newAdmin.password} onChange={updateNewAdmin(e)}></input><br/>
+
         </form>
     </div>
   )

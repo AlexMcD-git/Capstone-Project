@@ -81,7 +81,7 @@ function AdminTab() {
 
   return (
     <div>
-        {admin.username==="Alex"?<OwnerControls/>:null}
+        {admin.is_owner?<OwnerControls/>:null}
         <h1>Pending Tiles:</h1>
         <ul>
         {pendingTiles.map(tile=><TileListItem key={tile.id} tile={tile} acceptTile={acceptTile} declineTile={declineTile}/>)}
