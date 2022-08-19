@@ -24,7 +24,8 @@ function Login() {
           if(res.ok){
             res.json()
             .then(data=>{
-              dispatch(login({username:data.username}))
+              console.log(data)
+              dispatch(login({username:data.username, is_owner:data.is_owner}))
             })
             
           } else {

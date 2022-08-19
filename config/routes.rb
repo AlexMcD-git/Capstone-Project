@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post "/teams/:game_id", to:"teams#create"
   post "players/:team_id", to:"players#create"
-
+  post "admins", to: "admins#create"
 
   resources :games, only: [:index, :show, :create]
   resources :players, only: [:index, :destroy]

@@ -78,7 +78,7 @@ function AdminTab() {
         })
         .then(setPlayers([...players].filter(p => p.id !== id)))
     }
-
+    console.log(admin)
   return (
     <div>
         {admin.is_owner?<OwnerControls/>:null}
