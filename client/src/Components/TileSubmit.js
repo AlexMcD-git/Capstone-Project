@@ -5,8 +5,8 @@ function TileSubmit() {
 
   const initialState={
     image_url: "",
-    team: activeGame.boards[0].team.team_name,
-    tile: activeGame.boards[0].tiles[0].description
+    team: "Select A Team",
+    tile: "Select A Tile"
 }
 
 const [formState, setFormState] = useState(initialState)
@@ -38,11 +38,13 @@ function handleSubmit(e){
         <br/>
         <label>Which team are you submitting for? </label>
         <select name="team" value={formState.team} onChange={handleChange}>
+          <option>Select A Team</option>
           {activeGame.boards.map(board => <option key={board.team.id}>{board.team.team_name}</option>)}
         </select>
         <br/>
         <label>Which tile? </label>
         <select name="tile" value={formState.tile} onChange={handleChange}>
+          <option>Select A Tile</option>
           {activeGame.boards[0].tiles.map(tile=><option key={tile.id}>{tile.description}</option>)}
         </select>
         <br/>

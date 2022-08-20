@@ -4,16 +4,16 @@ import { useSelector, useDispatch } from "react-redux"
 import TileListItem from './TileListItem'
 import { setGame } from '../features/game'
 import NewGameForm from './NewGameForm'
+import NewPlayerForm from './NewPlayerForm'
 
 function AdminTab() {
     const dispatch = useDispatch()
     const admin = useSelector ((state) => state.admin.value)
-    const [newPlayerName, setNewPlayername] = useState("")
     const [newTeamName, setNewTeamName] = useState("")
     const [players, setPlayers] = useState([])
     const [teams, setTeams] = useState([])
     const [pendingTiles, setPendingTiles] = useState([])
-    const [selectTeam, setSelectTeam] = useState("")
+
 
     const activeGame = useSelector ((state) => state.game.value)
     useEffect(()=>{setTeams(activeGame.boards.map(board=>board.team))},[])
@@ -55,22 +55,6 @@ function AdminTab() {
         })
     }   
 
-    function createPlayer(e){
-        e.preventDefault()
-        const teamForNewPlayer = teams.filter(t=>t.team_name===selectTeam)[0]
-        fetch(`/players/${teamForNewPlayer.id}`,{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({in_game_name: newPlayerName})
-        })
-        .then(res=>res.json())
-        .then(data=>{
-            // dispatch(setGame(data))
-            setNewPlayername("")
-        })
-    }
 
     function deletePlayer(id){
         fetch(`/players/${id}`,{
@@ -78,7 +62,6 @@ function AdminTab() {
         })
         .then(setPlayers([...players].filter(p => p.id !== id)))
     }
-    console.log(admin)
   return (
     <div>
         {admin.is_owner?<OwnerControls/>:null}
@@ -97,14 +80,8 @@ function AdminTab() {
         </form>
 
         {/* create a new player */}
-        <form onSubmit={(e)=>createPlayer(e)}>
-            <label>Add a player: </label>
-            <input type="text" name="player" value={newPlayerName} onChange={(e)=>setNewPlayername(e.target.value)}></input>
-            <select value={selectTeam} onChange={e=>setSelectTeam(e.target.value)}>
-                {teams.map(team=><option key={team.id}>{team.team_name}</option>)}
-            </select>
-            <button type="submit">Create Player</button>
-        </form>
+        <NewPlayerForm teams={teams}/>
+
         <br/>
         <h2>Player List:</h2>
         <ul>
