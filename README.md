@@ -8,6 +8,7 @@ While this doesn't really seem like "conventional" bingo, where you are trying t
 In reality, it is kind of just a list of tasks, but presented in a "Bingo"-like format. Due to random elements of the game, there is still a luck-based component.
 
 **So how does it work?**
+
 If you found yourself here, someone is probably running a Bingo game. Talk to the admins to get yourself added. I've reserved this functionality to admins.
 In the "boards" tab, you can see the current standings for the active game, as well as each team's progress
 In the "submit for a tile" you will submit a link to the screenshot of you fulfulling the requirements for a tile. You will select the tile and your team (viewable in Boards tab).
