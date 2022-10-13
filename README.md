@@ -16,6 +16,9 @@ In reality, it is kind of just a list of tasks, but presented in a "Bingo"-like 
 **So how does it work?**
 
 If you found yourself here, someone is probably running a Bingo game. Talk to the admins to get yourself added. I've reserved this functionality to admins.
-In the "boards" tab, you can see the current standings for the active game, as well as each team's progress
+
+In the "boards" tab, you can see the current standings for the active game, as well as each team's progress.
+
 In the "submit for a tile" you will submit a link to the screenshot of you fulfulling the requirements for a tile. You will select the tile and your team (viewable in Boards tab).
+
 Admins: Login to view the Admins tab. Here you will see a description with an image. Approve or decline the claim based on the image. You can also create teams and add players to those teams.
